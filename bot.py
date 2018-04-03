@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 from pokemon_details_by_id_or_name import pokemon_details_by_id_or_name
-from secrets import TOKEN
+import os
 
 
 bot = commands.Bot(description="This is a bot to get Pokemon status of diffrent pokemons.", command_prefix=("+"))
@@ -32,4 +32,4 @@ async def dex(ctx, id_or_name=None):
         embed = pokemon_details_by_id_or_name(id_or_name)
         await bot.send_message(ctx.message.channel, '', embed=embed)
 
-bot.run(TOKEN)
+bot.run(os.getenv('POKEBOT_TOKEN'))
