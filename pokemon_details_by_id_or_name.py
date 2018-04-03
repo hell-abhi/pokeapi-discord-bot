@@ -16,7 +16,8 @@ def pokemon_details_by_id_or_name(id_or_name):
         embed = discord.Embed()
 
         #printing basic info
-        embed.add_field(name='Name:', value=data_json['name'], inline=False)
+        embed.title = data_json['name'].upper()
+        # embed.add_field(name='Name:', value=data_json['name'].upper(), inline=False)
         embed.add_field(name='Pokedex Order:', value=str(data_json['order']), inline=False)
         embed.add_field(name='Weight:', value=str(data_json['weight']), inline=True)
         embed.add_field(name='Height:', value=str(data_json['height']), inline=True)
@@ -32,7 +33,7 @@ def pokemon_details_by_id_or_name(id_or_name):
 
         #printing stats
         stats_string = ''
-        embed.add_field(name='**Stats**:', value = stats_string, inline=False)
+        embed.add_field(name='Stats:', value='\uFFF0', inline=False)
         for stat in data_json['stats']:
             embed.add_field(name=stat['stat']['name'], value=str(stat['base_stat']), inline=True)
         # pokemon_details += "Stats: "+stats_string

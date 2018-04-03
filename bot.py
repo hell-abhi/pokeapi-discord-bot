@@ -30,6 +30,6 @@ async def dex(ctx, id_or_name=None):
         await bot.say("Wrong Parameter")
     else:
         embed = pokemon_details_by_id_or_name(id_or_name)
-        await bot.send_message(ctx.message.channel, embed=embed)
+        await bot.send_message(ctx.message.channel, '', embed=embed)
 
 bot.run(TOKEN)
