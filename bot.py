@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from pokemon_details_by_id_or_name import pokemon_details_by_id_or_name
+from secrets import TOKEN
 
 
 bot = commands.Bot(description="This is a bot to get Pokemon status of diffrent pokemons.", command_prefix=("+"))
@@ -28,7 +29,7 @@ async def dex(ctx, id_or_name=None):
     if id_or_name is None:
         await bot.say("Wrong Parameter")
     else:
-        pokemon_details = pokemon_details_by_id_or_name(id_or_name)
-        await bot.send_message(ctx.message.channel, pokemon_details['text'], embed=pokemon_details['image'])
+        embed = pokemon_details_by_id_or_name(id_or_name)
+        await bot.send_message(ctx.message.channel, embed=embed)
 
-bot.run("NDMwNDUzNTYyNjAzMDc3NjQz.DaQcLg.59bvbbT4uH_50XzukWj22ah_GVM")
+bot.run(TOKEN)
